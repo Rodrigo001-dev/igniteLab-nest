@@ -1,3 +1,4 @@
+import { Replace } from 'src/helpers/Replace';
 import { Content } from './content';
 
 export interface NotificationProps {
@@ -11,8 +12,13 @@ export interface NotificationProps {
 export class Notification {
   private props: NotificationProps;
 
-  constructor(props: NotificationProps) {
-    this.props = props;
+  // estou informando que nesse momento o CreatedAt pode ser opcional
+  constructor(props: Replace<NotificationProps, { createdAt?: Date }>) {
+    this.props = {
+      ...props,
+      // se o createAt não for informado eu crio ele com a data atual
+      createdAt: props.createdAt ?? new Date(),
+    };
   }
 
   //os getters e setters são métodos que definimos dentro da entidade, são métodos
