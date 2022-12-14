@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto';
+
 import { Replace } from 'src/helpers/Replace';
 import { Content } from './content';
 
@@ -10,15 +12,21 @@ export interface NotificationProps {
 }
 
 export class Notification {
+  private _id: string;
   private props: NotificationProps;
 
   // estou informando que nesse momento o CreatedAt pode ser opcional
   constructor(props: Replace<NotificationProps, { createdAt?: Date }>) {
+    this._id = randomUUID();
     this.props = {
       ...props,
       // se o createAt não for informado eu crio ele com a data atual
       createdAt: props.createdAt ?? new Date(),
     };
+  }
+
+  public get id() {
+    return this._id;
   }
 
   //os getters e setters são métodos que definimos dentro da entidade, são métodos
