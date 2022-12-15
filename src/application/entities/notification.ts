@@ -59,12 +59,18 @@ export class Notification {
     return this.props.category;
   }
 
-  public set readAt(readAt: Date | null | undefined) {
-    this.props.readAt = readAt;
+  // não criei um set para o readAt porque não faz sentido o caso de uso
+  // alterar esse campo como ele quiser
+  public read() {
+    this.props.readAt = new Date();
   }
 
   public get readAt(): Date | null | undefined {
     return this.props.readAt;
+  }
+
+  public unread() {
+    this.props.readAt = null;
   }
 
   // não criei um set para o canceledAt porque não faz sentido o caso de uso
