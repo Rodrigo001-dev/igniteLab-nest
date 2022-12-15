@@ -17,8 +17,12 @@ export class Notification {
   private props: NotificationProps;
 
   // estou informando que nesse momento o CreatedAt pode ser opcional
-  constructor(props: Replace<NotificationProps, { createdAt?: Date }>) {
-    this._id = randomUUID();
+  constructor(
+    props: Replace<NotificationProps, { createdAt?: Date }>,
+    id?: string,
+  ) {
+    // se o id existir eu uso ele se não eu uso um randomUUID
+    this._id = id ?? randomUUID();
     this.props = {
       ...props,
       // se o createAt não for informado eu crio ele com a data atual
