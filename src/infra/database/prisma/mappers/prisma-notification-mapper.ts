@@ -11,10 +11,11 @@ export class PrismaNotificationMapper {
     // um formato de como o Prisma precisa utilizar a notification
     return {
       id: notification.id,
-      category: notification.category,
       content: notification.content.value,
+      category: notification.category,
       recipientId: notification.recipientId,
       readAt: notification.readAt,
+      canceledAt: notification.canceledAt,
       createdAt: notification.createdAt,
     };
   }
