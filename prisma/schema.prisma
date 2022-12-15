@@ -13,6 +13,7 @@ model Notification {
   content     String
   category    String
   readAt      DateTime? //o ? quer dizer que esse campo pode ser nulo
+  canceledAt  DateTime?
   createdAt   DateTime  @default(now())
 
   // os índices garantem uma facilidade em buscar informações que são filtradas
