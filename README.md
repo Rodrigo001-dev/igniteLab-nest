@@ -1,51 +1,14 @@
 <h1 align="center">
-  <img alt="Ignite Lab Node" title="#BolaoDaCopa" src="" width="380px" />
+  <img alt="Ignite Lab Node" title="#BolaoDaCopa" src="https://github.com/Rodrigo001-dev/igniteLab-nest/blob/main/.github/logo.svg" width="380px" />
 </h1>
 
 ## :page_with_curl: Projeto
 
 Criando um microsserviço no Ignite Lab!
-básicamente é um serviço de notificações totalmente criado com Node e o Framework Nest.js, utilizando alguns princípios do SOLID.
 
-<LINKEDIN>
-Fala Dev!
+basicamente é um serviço de notificações totalmente criado com Node e o Framework Nest.js, utilizando vários princípios e conceitos.
 
-Que evento incrível 🚀🚀
-
-Mais uma vez queria agradecer a Rocketseat por sempre estar se superando e melhorando para trazer conteúdos relevantes e atualizados, e também queria agradecer o Diego pela sua metodologia incrível!!
-
-Depois das aulas tivemos a live que faz o encerramento do evento e implementa o Kafka.
-
-Mas o que é o Kafka?
-
-Basicamente o Kafka é uma plataforma para realizar a comunicação entre serviços.
-
-Mas por que utilizar o Kafka?
-
-Pense na seguinte situação:
-
-Nós temos 2 microsserviços, um para receber as compras do usuário e esse serviço vai ter um banco de dados próprio que vai armazenar os dados de compra e imaginem que temos um outro microsserviço para emissão de nota fiscal eletrônica. Então quando o usuário faz a compra, depois que a compra foi processada, o serviço de compras avisa o serviço de nota fiscal que houve uma nova compra, o serviço de nota fiscal gera a nota fiscal e envia isso por email para o usuário.
-
-Os serviços são totalmente independentes, ou seja, um não depende do outro para funcionar se por algum motivo o serviço de nota fiscal estiver fora do ar, o serviço de compras não vai ser afetado.
-
-Mas o que aconteceria se o serviço de nota fiscal estiver fora do ar?
-
-É ai que entra os sistemas de mensageria assincrona. Utilizando o Kafka como ferramenta vamos ter que entender três principais conceitos:
-
-Producers(Produtores): é todo mundo que envia eventos, ou seja, pegando o exemplo acima o producer vai ser o serviço de compras.
-
-Consumers(Consumidores): é todo mundo que consome eventos, ou seja, pegando o exemplo acima o consumer vai ser o serviço de nota fiscal eletrônica.
-
-Topics: os tópicos são os tipos de mensagem que podemos transitar entre os dois lados(producers e consumers).
-
-Toda vez que o serviço de compras for enviar uma mensagem para o serviço de nota fiscal eletrônica, ele precisa dizer qual o tópico que está sendo enviado, nesse caso temos apenas um único tópico, que é o de compra, ou seja, toda vez que ouver uma compra o serviço de compras vai enviar um evento para o tópico chamado compra informando a nova compra, ele vai enviar junto todas as informações daquela compra e o tópico no Kafka funciona como um banco de dados, cada tópico no Kafka é como se fosse uma tabela.
-
-Mas o que ganhamos com isso?
-
-Se por algum motivo quando houve uma nova compra o serviço de nota fiscal estiver fora do ar, no modelo onde o kafka avisaria esse serviço ele teria um erro, quando temos o comportamento de pulling, ou seja, o consumer buscar a informação ao invés de push onde a informação é enviada para o consumer, nos ganhamos muito mais tolerância a falha, porque se o serviço de nota fiscal estiver fora do ar os outros serviços(consumers) vão conseguir tranquilamente buscar dados da compra, e quando o serviço de nota fiscal voltar ao ar ele vai buscar todas as mensagens que ele não consumiu ainda.
-
-Existem vários outros conceitos quando falamos sobre escala com Kafka mas o core é isso.
-</LINKEDIN>
+Essa aplicação mesmo utilizando o framework Nest, está totalmente desacoplada, ou seja, se algum dia trocar de Framework ou até mesmo de linguagem realizando pequenas alterações vai funcionar perfeitamente.
 
 ## 🚀 Tecnologias/Bibliotecas utilizadas
 
